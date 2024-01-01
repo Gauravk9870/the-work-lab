@@ -1,0 +1,116 @@
+@use "../../utils/mediaqueries" as media;
+
+.howitworks {
+  padding: 4rem;
+
+  .container {
+    .title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      p {
+        font-size: 1.5rem;
+        color: gray;
+      }
+
+      h2 {
+        font-size: 2.8rem;
+        color: #111;
+        font-weight: bold;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .content {
+      margin-top: 4rem;
+
+      ul {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        
+        @include media.for-greater-than-smaller {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include media.for-greater-than-medium {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        li {
+          position: relative;
+          padding: 4rem;
+          list-style: none;
+          border: 1px solid rgba(128, 128, 128, 0.47);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          border-radius: 1rem;
+          overflow: hidden;
+          cursor: pointer;
+
+          &:first-child {
+            background: #3981e4;
+          }
+          &:nth-child(2) {
+            background: #56d8b1;
+          }
+          &:nth-child(3) {
+            background: #cca3d7;
+          }
+
+          .count {
+            font-size: 5rem;
+            font-weight: bolder;
+            color: rgba(255, 255, 255, 0.651);
+            z-index: 9;
+          }
+
+          h4 {
+            font-size: 2rem;
+            color: white;
+            z-index: 9;
+            text-align: center;
+          }
+
+          .icon {
+            position: absolute;
+            bottom: -20%;
+            left: 0;
+            // width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.1;
+            transition: all 0.3s ease-in-out;
+
+            svg {
+              width: 50%;
+              height: 100%;
+              stroke: white;
+            }
+          }
+
+          .desc {
+            font-size: 1.5rem;
+            color: white;
+            z-index: 9;
+            text-align: center;
+          }
+
+          &:hover {
+            .icon {
+              transform: scale(1.1);
+              opacity: 0.2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

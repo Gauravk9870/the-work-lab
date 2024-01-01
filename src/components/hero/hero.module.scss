@@ -1,0 +1,123 @@
+@use "../../utils/variables" as variables;
+@use "../../utils/mediaqueries" as media;
+
+.hero {
+  padding: 1rem 2rem;
+  height: 60vh;
+
+  @include media.for-greater-than-medium {
+    height: 80vh;
+    padding: 2rem 4rem;
+  }
+
+  .container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    @include media.for-greater-than-medium {
+      // border: 1px solid red;
+      flex-direction: row;
+    }
+
+    .left {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @include media.for-greater-than-medium {
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        @include media.for-greater-than-medium {
+          text-align: left;
+        }
+      }
+
+      p {
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
+        // border: 1px solid red;
+        width: 60%;
+
+        text-align: center;
+
+        @include media.for-greater-than-medium {
+          text-align: left;
+        }
+      }
+
+      .quotes {
+        li {
+          list-style: none;
+          font-size: 1.4rem;
+
+          text-align: center;
+
+          @include media.for-greater-than-medium {
+            text-align: left;
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        align-items: center;
+        margin-top: 5rem;
+
+        button {
+          padding: variables.$button-padding;
+          font-size: 1.6rem;
+
+          &:first-child {
+            background: variables.$primary;
+            color: #fff;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            margin-right: 1rem;
+          }
+
+          &:last-child {
+            background: transparent;
+            border: none;
+            color: variables.$primary;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: none;
+
+      @include media.for-greater-than-medium {
+        display: block;
+      }
+      flex: 1;
+      //   border: 1px solid red;
+
+      height: 100%;
+      background: #d7d1c5;
+
+      .image {
+        width: 100%;
+        height: 100%;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "../../utils/mediaqueries" as media;
+
+.partners {
+  // border: 1px solid red;
+  padding: 2rem 2rem;
+
+  @include media.for-greater-than-medium {
+    padding: 4rem 4rem;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include media.for-greater-than-medium {
+      flex-direction: row;
+    }
+
+    .left {
+      //   border: 1px solid red;
+      h2 {
+        font-size: 2.5rem;
+        color: gray;
+        font-weight: normal;
+        text-align: center;
+
+        @include media.for-greater-than-medium {
+          text-align: left;
+        }
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .right {
+      //   border: 1px solid green;
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        @include media.for-greater-than-medium {
+          flex-wrap: nowrap;
+        }
+
+        li {
+          list-style: none;
+          // border: 1px solid red;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
