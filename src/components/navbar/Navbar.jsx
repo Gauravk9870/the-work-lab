@@ -3,7 +3,7 @@ import styles from "./navbar.module.scss";
 import Logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ openPopup }) => {
   const [clicked, setClicked] = React.useState(false);
 
   const handleClick = () => {
@@ -42,7 +42,7 @@ const Navbar = () => {
             <button>Log in</button>
           </li>
           <li className={styles.join}>
-            <button>Join</button>
+            <button onClick={openPopup}>Join</button>
           </li>
         </ul>
 

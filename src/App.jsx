@@ -9,14 +9,15 @@ import Footer from "./components/footer/Footer";
 function App() {
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join />} />
+        <Route path="/join">
+          <Route path="freelancer" element={<Join />} />
+          <Route path="organization" element={<Join />} />
+        </Route>
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
-      <Footer />
     </>
   );
 }

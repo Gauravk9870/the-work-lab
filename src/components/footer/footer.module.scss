@@ -1,4 +1,5 @@
 @use "../../utils/mediaqueries" as media;
+@use "../../utils/variables" as variables;
 
 .footer {
   background-color: whitesmoke;
@@ -47,11 +48,22 @@
             list-style: none;
             font-size: 1.4rem;
             cursor: pointer;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+              color: variables.$primary;
+            }
           }
           .heading {
             font-size: 1.6rem;
             font-weight: bold;
             margin-bottom: 1rem;
+
+            margin-top: 1rem;
+
+            &:hover {
+              color: #000;
+            }
           }
         }
       }

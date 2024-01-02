@@ -17,31 +17,37 @@ const Footer = () => {
           </div>
           <div className={styles.right}>
             <ul>
-              <li className={styles.heading}>About us</li>
+              <li className={styles.heading}>On Demand Talent</li>
+              <li>Hire Freelance developers</li>
+              <li>Hire Freelance Designers</li>
+              <li>Hire Freelance Finanxe Experts</li>
+              <li>Hire Freelance Project Managers</li>
+              <li>Hire Freelance Product Managers</li>
 
-              <li>Policy</li>
-              <li>Popluar Jobs</li>
-              <li>Career</li>
-              <li>Our Mission</li>
+              <li className={styles.heading}>End to end solutions</li>
+              <li>Managed Delivery</li>
             </ul>
             <ul>
-              <li className={styles.heading}>Help & Support</li>
+              <li className={styles.heading}>Management Consulting</li>
+              <li>Strategy Consulting</li>
+              <li>People & Organization Consulting</li>
+              <li>Innovation & Experience Consulting</li>
 
-              <li>Help & Support</li>
-              <li>Contact</li>
-              <li>Trust & Safety</li>
-              <li>Live Support</li>
-              <li>Security</li>
+              <li className={styles.heading}>Technology Services</li>
+              <li>Application Services</li>
+              <li>Cloud Services</li>
+              <li>Information Security Services</li>
+              <li>Quality Assurance Services</li>
             </ul>
             <ul>
-              <li className={styles.heading}>Quick Links</li>
+              <li className={styles.heading}>About</li>
 
-              <li>All Job</li>
-              <li>Graphic Design</li>
-              <li>Programming and Tech</li>
-              <li>Motion Graphic</li>
-              <li>Project Management</li>
-              <li>Web Design & Development</li>
+              <li>Clients</li>
+              <li>Freelance Jobs</li>
+              <li>Specialized Services</li>
+              <li>Utlities & Tools</li>
+              <li>Research & Analysis Center</li>
+              <li>About Us</li>
             </ul>
           </div>
         </div>

@@ -1,0 +1,10 @@
+@use "../../utils/mediaqueries" as media;
+@use "../../utils/variables" as variables;
+
+.login {
+  padding: 4rem;
+
+  .container {
+    border: 1px solid red;
+  }
+}

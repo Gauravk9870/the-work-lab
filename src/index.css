@@ -14,40 +14,49 @@ html {
     font-size: 62.5%;
 }
 
+a {
+    text-decoration: none;
+}
+
 @media (max-width: 1080px) {
     html {
-        font-size: 58%; /* 58% of 16px = 9.28px */
-        
+        font-size: 58%;
+        /* 58% of 16px = 9.28px */
+
     }
 }
 
 @media (max-width: 720px) {
     html {
-        font-size: 54%; /* 54% of 16px = 8.64px */
+        font-size: 54%;
+        /* 54% of 16px = 8.64px */
     }
 }
 
 @media (max-width: 540px) {
     html {
-        font-size: 48%; /* 48% of 16px = 7.68px */
+        font-size: 48%;
+        /* 48% of 16px = 7.68px */
     }
 }
 
 @media (max-width: 420px) {
     html {
-        font-size: 44%; /* 44% of 16px = 7.04px */
+        font-size: 44%;
+        /* 44% of 16px = 7.04px */
     }
 }
 
 @media (max-width: 360px) {
     html {
-        font-size: 42%; /* 42% of 16px = 6.72px */
+        font-size: 42%;
+        /* 42% of 16px = 6.72px */
     }
 }
 
 @media (max-width: 320px) {
     html {
-        font-size: 38%; /* 38% of 16px = 6.08px */
+        font-size: 38%;
+        /* 38% of 16px = 6.08px */
     }
 }
-
