@@ -5,16 +5,82 @@ import { IoMaleFemaleOutline } from "react-icons/io5";
 import Logo from "../../assets/logo.png";
 import JoinImg from "../../assets/join.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Join = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
   const [gender, setGender] = useState("");
-  const handleGenderChange = (e) => {
-    setGender(e.target.value);
+  const [email, setEmail] = useState("");
+  const [resume, setResume] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [shortBio, setShortBio] = useState("");
+  const [selectedExperience, setSelectedExperience] = useState("");
+  const [expertise, setExpertise] = useState("");
+  const [projectPreference, setProjectPreference] = useState("");
+  const [freelancerInterest, setFreelancerInterest] = useState("");
+  const [remoteWorkSuccessKey, setRemoteWorkSuccessKey] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const userData = {
+      firstName,
+      lastName,
+      dateOfBirth,
+      gender,
+      email,
+      password,
+      resume,
+      country,
+      city,
+      shortBio,
+      yearsOfExperience: selectedExperience,
+      expertise,
+      interestedProducts: projectPreference,
+      freelancerInterest,
+      remoteWorkSuccessKey,
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/freelancer/register",
+        userData
+      );
+
+      if (response.status === 201) {
+        alert("Your data has been submitted successfully");
+        setFirstName(""); 
+        setLastName("");
+        setDateOfBirth("");
+        setGender("");
+        setEmail("");
+        setResume("");
+        setCountry("");
+        setCity("");
+        setShortBio("");
+        setSelectedExperience("");
+        setExpertise("");
+        setProjectPreference("");
+        setFreelancerInterest("");
+        setRemoteWorkSuccessKey("");
+        setPassword("");
+        
+      } else {
+        alert("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    console.log("SELECTED GENDER : ", gender);
-  }, [gender]);
+    console.log(dateOfBirth);
+  }, [dateOfBirth]);
+
   return (
     <div className={styles.join}>
       <div className={styles.container}>
@@ -53,25 +119,40 @@ const Join = () => {
         </div>
         <div className={styles.right}>
           <div className={styles[`right-container`]}>
-            <form>
-              <div className={`${styles.input} ${styles.name}`}>
-                <div className={`${styles.firstName} ${styles.item}`}>
+            <form onSubmit={handleSubmit}>
+              {/* Name  */}
+              <div className={`${styles.input}`}>
+                <div className={`${styles.item}`}>
                   <label htmlFor="firstName" className={styles.input__label}>
                     First Name
                   </label>
-                  <input type="text" id="firstName" placeholder="First Name" />
+                  <input
+                    type="text"
+                    id="firstName"
+                    placeholder="First Name"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                  />
                 </div>
 
-                <div className={`${styles.lastName} ${styles.item}`}>
+                <div className={`${styles.item}`}>
                   <label htmlFor="lastName" className={styles.input__label}>
                     Last Name
                   </label>
-                  <input type="text" id="lastName" placeholder="Last Name" />
+                  <input
+                    type="text"
+                    id="lastName"
+                    placeholder="Last Name"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
                 </div>
               </div>
 
+              {/* DOB & Gender  */}
               <div className={styles.input}>
-                <div className={`${styles.dateofbirth} ${styles.item}`}>
+                <div className={`${styles.item}`}>
                   <label htmlFor="dateofbirth" className={styles.input__label}>
                     Date of Birth
                   </label>
@@ -79,12 +160,14 @@ const Join = () => {
                     type="date"
                     id="dateofbirth"
                     placeholder="Date of Birth"
+                    value={dateOfBirth || ""}
+                    onChange={(e) => setDateOfBirth(e.target.value)}
+                    required
                   />
                 </div>
 
                 <div className={`${styles.gender} ${styles.item}`}>
                   <label className={styles.input__label}>Gender</label>
-
                   <ul>
                     <li>
                       <input
@@ -93,7 +176,7 @@ const Join = () => {
                         value="male"
                         id="male"
                         className={styles.visuallyHidden}
-                        onChange={handleGenderChange}
+                        onChange={(e) => setGender(e.target.value)}
                       />
                       <label htmlFor="male" className={styles.gender__label}>
                         <IoIosMale />
@@ -107,7 +190,7 @@ const Join = () => {
                         value="female"
                         id="female"
                         className={styles.visuallyHidden}
-                        onChange={handleGenderChange}
+                        onChange={(e) => setGender(e.target.value)}
                       />
                       <label htmlFor="female" className={styles.gender__label}>
                         <IoIosFemale />
@@ -121,7 +204,7 @@ const Join = () => {
                         value="others"
                         id="others"
                         className={styles.visuallyHidden}
-                        onChange={handleGenderChange}
+                        onChange={(e) => setGender(e.target.value)}
                       />
                       <label htmlFor="others" className={styles.gender__label}>
                         <IoMaleFemaleOutline />
@@ -132,8 +215,26 @@ const Join = () => {
                 </div>
               </div>
 
-              <div className={`${styles.input} ${styles.email}`}>
-                <div className={`${styles.email} ${styles.item}`}>
+              <div className={`${styles.input}`}>
+                {/* Password */}
+                <div className={`${styles.item}`}>
+                  <label htmlFor="password" className={styles.input__label}>
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className={`${styles.input}`}>
+                {/* Email */}
+                <div className={`${styles.item}`}>
                   <label htmlFor="email" className={styles.input__label}>
                     Email
                   </label>
@@ -141,50 +242,183 @@ const Join = () => {
                     type="email"
                     id="email"
                     placeholder="username@gmail.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                 </div>
-              </div>
 
-              <div className={`${styles.input}`}>
-                <div className={`${styles.linkedin} ${styles.item}`}>
-                  <label htmlFor="linkedin" className={styles.input__label}>
-                    Linkedin
-                  </label>
-                  <input
-                    type="text"
-                    id="linkedin"
-                    placeholder="https://www.portfolio.com"
-                  />
-                </div>
-                <div className={`${styles.resume} ${styles.item}`}>
+                {/* Resume URL */}
+                <div className={`${styles.item}`}>
                   <label htmlFor="resume" className={styles.input__label}>
-                    Resume
-                  </label>
-                  <input type="text" id="resume" placeholder="Resume URL" />
-                </div>
-              </div>
-
-              <div className={`${styles.input}`}>
-                <div className={`${styles.portfolio} ${styles.item}`}>
-                  <label htmlFor="portfolio" className={styles.input__label}>
-                    Portfolio
+                    Resume URL
                   </label>
                   <input
                     type="text"
-                    id="college"
-                    placeholder="https://www.portfolio.com"
+                    id="resume"
+                    placeholder="https://example.com/resume.pdf"
+                    value={resume}
+                    onChange={(e) => setResume(e.target.value)}
+                    required
                   />
                 </div>
-                <div className={`${styles.experience} ${styles.item}`}>
-                  <label htmlFor="experience" className={styles.input__label}>
-                    Years of Experience
+              </div>
+
+              {/* shortBio */}
+              <div className={`${styles.input}`}>
+                <div className={`${styles.item}`}>
+                  <label htmlFor="shortBio" className={styles.input__label}>
+                    Short Bio
                   </label>
-                  <input type="number" id="experience" placeholder="0-10" />
+                  <textarea
+                    id="shortBio"
+                    name="shortBio"
+                    rows={4}
+                    cols={50}
+                    placeholder="Share your thoughts about yourself."
+                    style={{ resize: "none" }}
+                    value={shortBio}
+                    onChange={(e) => setShortBio(e.target.value)}
+                  ></textarea>
+                </div>
+              </div>
+
+              {/* Location */}
+              <div className={`${styles.input}`}>
+                <div className={`${styles.item}`}>
+                  <label htmlFor="country" className={styles.input__label}>
+                    Country
+                  </label>
+                  <input
+                    type="text"
+                    id="country"
+                    placeholder="Country"
+                    value={country}
+                    onChange={(e) => setCountry(e.target.value)}
+                  />
+                </div>
+
+                <div className={styles.item}>
+                  <label htmlFor="city" className={styles.input__label}>
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="City"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className={`${styles.input} ${styles.additional}`}>
+                <h4 className={styles.input__heading}>
+                  Tell us about your professional experience{" "}
+                </h4>
+
+                {/* Experience  */}
+                <div className={styles.item}>
+                  <label htmlFor="experience" className={styles.input__label}>
+                    How many years of professional experience do you have in
+                    your field overall?
+                  </label>
+                  <select
+                    name="experience"
+                    id="experience"
+                    value={selectedExperience}
+                    onChange={(e) => setSelectedExperience(e.target.value)}
+                    required
+                  >
+                    <option value="">Select Experience</option>
+                    <option value="less than 1 year">Less than 1 year</option>
+                    <option value="1 to 2 years">1 to 2 years</option>
+                    <option value="2 to 3 years">2 to 3 years</option>
+                    <option value="3 to 5 years">3 to 5 years</option>
+                    <option value="5 to 8 years">5 to 8 years</option>
+                    <option value="more than 8 years">More than 8 years</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Expertise  */}
+              <div className={styles.input}>
+                <div className={styles.item}>
+                  <label htmlFor="" className={styles.input__label}>
+                    Area of Expertise (seprated by ' , ')
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter Your all expertise"
+                    value={expertise}
+                    onChange={(e) => setExpertise(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div className={`${styles.input} ${styles.additional}`}>
+                <h4 className={styles.input__heading}>
+                  Tell us about your freelancing preferences
+                </h4>
+
+                {/* interestedProducts                 */}
+                <div className={styles.item}>
+                  <label className={styles.input__label}>
+                    What type of products are you interested in working on?
+                  </label>
+                  <textarea
+                    id="projectPreference"
+                    name="projectPreference"
+                    rows={4}
+                    cols={50}
+                    placeholder="Share your thoughts about the types of projects you would like to work on."
+                    style={{ resize: "none" }} // Disable textarea resizing
+                    value={projectPreference}
+                    onChange={(e) => setProjectPreference(e.target.value)}
+                  ></textarea>
+                </div>
+
+                {/* freelancerInterest */}
+                <div className={styles.item}>
+                  <label className={styles.input__label}>
+                    What interests you the most about building a freelance
+                    career?
+                  </label>
+                  <textarea
+                    id="freelancerInterest"
+                    name="freelancerInterest"
+                    rows={4}
+                    cols={50}
+                    placeholder="Share your thoughts about  What interests you the most about building a freelance career."
+                    style={{ resize: "none" }} // Disable textarea resizing
+                    value={freelancerInterest}
+                    onChange={(e) => setFreelancerInterest(e.target.value)}
+                  ></textarea>
+                </div>
+
+                {/* remoteWorkSuccessKey */}
+                <div className={styles.item}>
+                  <label className={styles.input__label}>
+                    When working with client remotely, what do you consider the
+                    key to success?
+                  </label>
+                  <textarea
+                    id="remoteWorkSuccessKey"
+                    name="remoteWorkSuccessKey"
+                    rows={4}
+                    cols={50}
+                    placeholder="Share your thoughts about  What you consider the key to success when working with client remotely."
+                    style={{ resize: "none" }} // Disable textarea resizing
+                    value={remoteWorkSuccessKey}
+                    onChange={(e) => setRemoteWorkSuccessKey(e.target.value)}
+                  ></textarea>
                 </div>
               </div>
 
               <div className={`${styles.input}`}>
-                <button className={styles.submit}>Submit</button>
+                <button type="submit" className={styles.submit}>
+                  Submit
+                </button>
               </div>
             </form>
           </div>
