@@ -5,6 +5,7 @@ import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
 
 import Organization from "./pages/join/Organization";
+import Admin from "./pages/admin/Admin";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
           <Route path="freelancer" element={<Join />} />
           <Route path="organization" element={<Organization />} />
         </Route>
+        <Route path="/admin" element={<Admin/>}/>
         <Route path="*" element={<div>Not Found</div>} />
+
       </Routes>
     </>
   );
