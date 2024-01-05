@@ -3,9 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Join from "./pages/join/Join";
-import Navbar from "./components/navbar/Navbar";
-import Footer from "./components/footer/Footer";
-import Organization from "./pages/join/organization";
+
+import Organization from "./pages/join/Organization";
 
 function App() {
   return (
