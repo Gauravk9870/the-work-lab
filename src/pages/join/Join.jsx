@@ -7,6 +7,8 @@ import JoinImg from "../../assets/join.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const BASEURL = import.meta.env.VITE_BASE_URL;
+
 const Join = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -47,14 +49,13 @@ const Join = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/freelancer/register",
+        `${BASEURL}/api/freelancer/register`,
         userData
       );
 
-
       if (response.status === 200) {
         alert("Your data has been submitted successfully");
-        setFirstName(""); 
+        setFirstName("");
         setLastName("");
         setDateOfBirth("");
         setGender("");
@@ -69,11 +70,9 @@ const Join = () => {
         setFreelancerInterest("");
         setRemoteWorkSuccessKey("");
         setPassword("");
-
       } else if (response.status === 201) {
         alert(response.data.error);
-      }
-      else {
+      } else {
         alert("Something went wrong");
       }
     } catch (error) {

@@ -7,6 +7,8 @@ import JoinImg from "../../assets/join.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+const BASEURL = import.meta.env.VITE_BASE_URL;
+
 const Organization = () => {
   const [companyName, setCompanyName] = useState("");
   const [tradeName, setTradeName] = useState("");
@@ -51,7 +53,7 @@ const Organization = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/organization/register",
+        `${BASEURL}/api/organization/register`,
         organizationData
       );
 
@@ -74,10 +76,9 @@ const Organization = () => {
         setAbout("");
         setAnnualTurnover("");
         setServicesToExplore("");
-      }else if(response.status === 201) {
-        alert(response.data.error)
-      }
-      else {
+      } else if (response.status === 201) {
+        alert(response.data.error);
+      } else {
         alert("Something went wrong");
       }
     } catch (error) {
