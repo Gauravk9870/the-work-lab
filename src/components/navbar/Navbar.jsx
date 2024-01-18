@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const Navbar = ({ openPopup }) => {
   const [clicked, setClicked] = React.useState(false);
 
+  const handleLoginClick = () => {
+    
+  };
+
   const handleClick = () => {
     setClicked(!clicked);
   };
@@ -39,7 +43,7 @@ const Navbar = ({ openPopup }) => {
 
         <ul className={styles.actions}>
           <li className={styles.login}>
-            <button>Log in</button>
+            <button onClick={()=>handleLoginClick()}>Log in</button>
           </li>
           <li className={styles.join}>
             <button onClick={openPopup}>Join</button>

@@ -55,7 +55,7 @@ const Organization = () => {
         organizationData
       );
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         alert("Your data has been submitted successfully");
         setCompanyName("");
         setTradeName("");
@@ -74,7 +74,10 @@ const Organization = () => {
         setAbout("");
         setAnnualTurnover("");
         setServicesToExplore("");
-      } else {
+      }else if(response.status === 201) {
+        alert(response.data.error)
+      }
+      else {
         alert("Something went wrong");
       }
     } catch (error) {
