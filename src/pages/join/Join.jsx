@@ -81,8 +81,8 @@ const Join = () => {
   };
 
   useEffect(() => {
-    console.log(dateOfBirth);
-  }, [dateOfBirth]);
+    console.log("GENR" ,gender);
+  }, [gender]);
 
   return (
     <div className={styles.join}>
@@ -179,7 +179,10 @@ const Join = () => {
                         value="male"
                         id="male"
                         className={styles.visuallyHidden}
-                        onChange={(e) => setGender(e.target.value)}
+                        onChange={(e) => {
+                          console.log(e.target.value);
+                          setGender(e.target.value);
+                        }}
                       />
                       <label htmlFor="male" className={styles.gender__label}>
                         <IoIosMale />
@@ -193,7 +196,10 @@ const Join = () => {
                         value="female"
                         id="female"
                         className={styles.visuallyHidden}
-                        onChange={(e) => setGender(e.target.value)}
+                        onChange={(e) => {
+                          console.log(e.target.value);
+                          setGender(e.target.value);
+                        }}
                       />
                       <label htmlFor="female" className={styles.gender__label}>
                         <IoIosFemale />
@@ -207,7 +213,10 @@ const Join = () => {
                         value="others"
                         id="others"
                         className={styles.visuallyHidden}
-                        onChange={(e) => setGender(e.target.value)}
+                        onChange={(e) => {
+                          console.log(e.target.value);
+                          setGender(e.target.value);
+                        }}
                       />
                       <label htmlFor="others" className={styles.gender__label}>
                         <IoMaleFemaleOutline />
