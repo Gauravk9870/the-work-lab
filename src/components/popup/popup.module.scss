@@ -1,3 +1,6 @@
+@use "../../utils/variables" as variables;
+@use "../../utils/mediaqueries" as media;
+
 .popup {
   position: fixed;
   top: 0;
@@ -13,14 +16,19 @@
 
   .container {
     border: 1px solid green;
-    width: 50%;
-    height: 50%;
+    width: 80%;
+    height: 30%;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     position: relative;
+
+    @include media.for-greater-than-medium {
+      width: 50%;
+      height: 50%;
+    }
 
     .close {
       position: absolute;

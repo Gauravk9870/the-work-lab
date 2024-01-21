@@ -51,6 +51,7 @@ const Organization = () => {
       servicesToExplore,
     };
 
+
     try {
       const response = await axios.post(
         `${BASEURL}/api/organization/register`,

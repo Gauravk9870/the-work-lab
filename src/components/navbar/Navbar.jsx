@@ -50,14 +50,14 @@ const Navbar = ({ openPopup }) => {
           </li>
         </ul>
 
-        <div
+        {/* <div
           className={`${styles.hamburger} ${clicked ? styles.clicked : ""}`}
           onClick={handleClick}
         >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

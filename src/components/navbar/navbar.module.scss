@@ -68,52 +68,52 @@
     }
 
     .actions {
-      display: none;
+      // display: none;
 
-      @include media.for-greater-than-large {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
+      // @include media.for-greater-than-large {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
 
-        li {
-          list-style: none;
+      li {
+        list-style: none;
 
-          button {
-            border: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-            padding: variables.$button-padding;
-            border-radius: variables.$button-radius;
-            transition: all 0.3s ease-in-out;
-          }
+        button {
+          border: none;
+          font-size: 1.6rem;
+          cursor: pointer;
+          padding: variables.$button-padding;
+          border-radius: variables.$button-radius;
+          transition: all 0.3s ease-in-out;
         }
+      }
 
-        .login {
-          button {
-            background: transparent;
-            color: variables.$primary;
-            border: 1px solid variables.$primary;
+      .login {
+        button {
+          background: transparent;
+          color: variables.$primary;
+          border: 1px solid variables.$primary;
 
-            &:hover {
-              background: variables.$primary;
-              color: variables.$white;
-              border: 1px solid variables.$primary;
-            }
-          }
-        }
-
-        .join {
-          button {
+          &:hover {
             background: variables.$primary;
             color: variables.$white;
-
-            &:hover {
-              transform: scale(1.05);
-            }
+            border: 1px solid variables.$primary;
           }
         }
       }
+
+      .join {
+        button {
+          background: variables.$primary;
+          color: variables.$white;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+      // }
     }
 
     .hamburger {
