@@ -7,6 +7,7 @@ import Testimonial from "../../components/testimonial/Testimonial";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import Popup from "../../components/popup/Popup";
+import CustomizeSolution from "../../components/customizeSolution/CustomizeSolution";
 
 const Home = () => {
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
@@ -26,6 +27,7 @@ const Home = () => {
         <Hero />
         <Partners />
         <HowItWorks />
+        <CustomizeSolution />
         <Testimonial />
       </main>
       <Footer />

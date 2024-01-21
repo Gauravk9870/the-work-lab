@@ -11,7 +11,7 @@ const HowItWorks = () => {
         </div>
 
         <div className={styles.content}>
-          <ul>
+          <ul>  
             <li>
               <span className={styles.count}>01</span>
 
