@@ -14,12 +14,14 @@
       p {
         font-size: 1.5rem;
         color: gray;
+        text-align: center;
       }
 
       h2 {
         font-size: 2.8rem;
         color: #111;
         font-weight: bold;
+        text-align: center;
 
         span {
           font-weight: bold;
@@ -43,8 +45,8 @@
         gap: 1rem;
         width: 100%;
 
-        @include media.for-greater-than-medium{
-            width: 50%;
+        @include media.for-greater-than-medium {
+          width: 50%;
         }
 
         button {
@@ -185,6 +187,23 @@
           }
         }
       }
+
+      //   .team_aug {
+      //     border: 1px solid red;
+      //     width: 100%;
+
+      //     .team_aug__left {
+      //       border: 1px solid blue;
+      //       width: 100%;
+      //       height: 100%;
+      //     }
+
+      //     .team_aug__right{
+      //         border: 1px solid green;
+      //         width: 100%;
+      //         height: 100%;
+      //     }
+      //   }
     }
   }
 }

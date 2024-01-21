@@ -66,6 +66,11 @@ const CustomizeSolution = () => {
               </li>
             </ul>
           </div>
+
+          {/* <div className={styles.team_aug}>
+            <div className={styles.team_aug__left}></div>
+            <div className={styles.team_aug__right}></div>
+          </div> */}
         </div>
       </div>
     </div>
