@@ -4,7 +4,7 @@ import { IoIosMale, IoIosFemale, IoIosArrowBack } from "react-icons/io";
 import { IoMaleFemaleOutline } from "react-icons/io5";
 import Logo from "../../assets/logo.png";
 import JoinImg from "../../assets/join.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const BASEURL = import.meta.env.VITE_BASE_URL;
@@ -27,6 +27,8 @@ const Organization = () => {
   const [about, setAbout] = useState("");
   const [annualTurnover, setAnnualTurnover] = useState("");
   const [servicesToExplore, setServicesToExplore] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,7 +53,6 @@ const Organization = () => {
       servicesToExplore,
     };
 
-
     try {
       const response = await axios.post(
         `${BASEURL}/api/organization/register`,
@@ -59,7 +60,6 @@ const Organization = () => {
       );
 
       if (response.status === 200) {
-        alert("Your data has been submitted successfully");
         setCompanyName("");
         setTradeName("");
         setGstin("");
@@ -77,6 +77,7 @@ const Organization = () => {
         setAbout("");
         setAnnualTurnover("");
         setServicesToExplore("");
+        navigate("/form-submitted-successfully");
       } else if (response.status === 201) {
         alert(response.data.error);
       } else {

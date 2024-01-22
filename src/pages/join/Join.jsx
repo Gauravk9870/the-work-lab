@@ -4,7 +4,7 @@ import { IoIosMale, IoIosFemale, IoIosArrowBack } from "react-icons/io";
 import { IoMaleFemaleOutline } from "react-icons/io5";
 import Logo from "../../assets/logo.png";
 import JoinImg from "../../assets/join.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const BASEURL = import.meta.env.VITE_BASE_URL;
@@ -25,6 +25,8 @@ const Join = () => {
   const [freelancerInterest, setFreelancerInterest] = useState("");
   const [remoteWorkSuccessKey, setRemoteWorkSuccessKey] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +56,6 @@ const Join = () => {
       );
 
       if (response.status === 200) {
-        alert("Your data has been submitted successfully");
         setFirstName("");
         setLastName("");
         setDateOfBirth("");
@@ -70,6 +71,7 @@ const Join = () => {
         setFreelancerInterest("");
         setRemoteWorkSuccessKey("");
         setPassword("");
+        navigate("/form-submitted-successfully");
       } else if (response.status === 201) {
         alert(response.data.error);
       } else {
@@ -81,7 +83,7 @@ const Join = () => {
   };
 
   useEffect(() => {
-    console.log("GENR" ,gender);
+    console.log("GENR", gender);
   }, [gender]);
 
   return (
